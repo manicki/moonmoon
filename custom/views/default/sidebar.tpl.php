@@ -8,7 +8,7 @@ usort($all_people, array('PlanetFeed', 'compare'));
         <ul>
             <?php foreach ($all_people as $person) : ?>
             <li>
-                <a href="<?php echo htmlspecialchars($person->getFeed(), ENT_QUOTES, 'UTF-8'); ?>" title="<?=_g('Feed')?>"><img src="postload.php?url=<?php echo urlencode(htmlspecialchars($person->getFeed(), ENT_QUOTES, 'UTF-8')); ?>" alt="" height="12" width="12" /></a>
+                <a href="<?php echo htmlspecialchars($person->getFeed(), ENT_QUOTES, 'UTF-8'); ?>" title="<?=_g('Feed')?>"><img src="<?php if ($PlanetConfig->onlyCronDownloads()) { echo 'custom/img/feed.png'; } else { echo 'postload.php?url=' . urlencode(htmlspecialchars($person->getFeed(), ENT_QUOTES, 'UTF-8')); } ?>" alt="" height="12" width="12" /></a>
                 <a href="<?php echo $person->getWebsite(); ?>" title="<?=_g('Website')?>"><?php echo htmlspecialchars($person->getName(), ENT_QUOTES, 'UTF-8'); ?></a>
             </li>
             <?php endforeach; ?>

@@ -21,6 +21,7 @@ class PlanetConfig
             'nohtml'        => 0,
             'postmaxlength' => 0,
             'cachedir'      => './cache',
+            'onlycrondownloads' => 1,
         );
 
         // User config
@@ -84,6 +85,11 @@ class PlanetConfig
     public function getCategories()
     {
         return $this->conf['categories'];
+    }
+
+    public function onlyCronDownloads()
+    {
+        return (bool)$this->conf['onlycrondownloads'];
     }
 
     public function toYaml()
