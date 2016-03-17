@@ -25,7 +25,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';
 <?php foreach ($items as $item): ?>
 
     <entry>
-        <title type="html"><?=htmlspecialchars($item->get_feed()->getName())?> : <?=htmlspecialchars($item->get_title())?></title>
+        <title type="html"><?=htmlspecialchars($item->get_feed()->getName())?> : <?=strip_tags($item->get_title())?></title>
         <id><?=htmlspecialchars($item->get_permalink())?></id>
         <link rel="alternate" href="<?=htmlspecialchars($item->get_permalink())?>"/>
         <published><?=$item->get_date('Y-m-d\\TH:i:s+00:00')?></published>
